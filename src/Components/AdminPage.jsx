@@ -14,7 +14,7 @@ const AdminPage=()=>{
     
     const fetchProducts = async()=>{
         try{
-            const response=await fetch(`http://localhost:3000/products`)
+            const response=await fetch(`https://e-commerce-backend-h8xm.onrender.com/products`)
             const data=await response.json()
             setProducts(data)
         }catch(error){
@@ -49,7 +49,7 @@ const AdminPage=()=>{
             const controller = new AbortController();
             const timeoutId = setTimeout(() => controller.abort(), 8000);
 
-            const response = await fetch('http://localhost:3000/products', {
+            const response = await fetch('https://e-commerce-backend-h8xm.onrender.com/products', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

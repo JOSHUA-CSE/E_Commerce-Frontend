@@ -10,7 +10,7 @@ const ProductCard=(props)=>{
             alert('Please login first');
             return;
         }
-        const res=await axios.post(`http://localhost:3000/cart`,{
+        const res=await axios.post(`https://e-commerce-backend-h8xm.onrender.com/cart`,{
             userId:userId,
             productId: id,
             quantity: 1

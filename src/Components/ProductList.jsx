@@ -6,7 +6,7 @@ const ProductList = () => {
     const [products,setProducts]=useState([])
     useEffect(()=>{
         const fetchData=async()=>{
-            const response=await fetch(`http://localhost:3000/products`)
+            const response=await fetch(`https://e-commerce-backend-h8xm.onrender.com/products`)
             const data=await response.json()
             setProducts(data)
         }

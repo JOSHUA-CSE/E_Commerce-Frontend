@@ -10,7 +10,7 @@ const Cart = () => {
 
     // useEffect(() => {
     //     const fetchData = async () => {
-    //         const response = await fetch(`http://localhost:3000/cart`)
+    //         const response = await fetch(`https://e-commerce-backend-h8xm.onrender.com/cart`)
     //         const data = await response.json()
     //         setProducts(data)
     //     }
@@ -24,7 +24,7 @@ const Cart = () => {
                 console.log('No userId found');
                 return;
             }
-            const response = await axios.get(`http://localhost:3000/cart?userId=${userId}`)
+            const response = await axios.get(`https://e-commerce-backend-h8xm.onrender.com/cart?userId=${userId}`)
             console.log(response.data)
             setProducts(response.data)
         }
@@ -34,7 +34,7 @@ const Cart = () => {
         e.preventDefault();
         try{
             const userId=localStorage.getItem('userId');
-            const res=await axios.delete(`http://localhost:3000/cart/${productId}`, {
+            const res=await axios.delete(`https://e-commerce-backend-h8xm.onrender.com/cart/${productId}`, {
                 data: { userId }
             })
             console.log('axios=>',res)
@@ -46,7 +46,7 @@ const Cart = () => {
     const handleBuy=async (e, productId) => {
         e.preventDefault();
         try{
-            const res=await axios.Post(`http://localhost:3000/orders`)
+            const res=await axios.Post(`https://e-commerce-backend-h8xm.onrender.com/orders`)
             console.log('axios=>',res)
             setProducts(prev => prev.filter(item => (item._id ?? item.id ?? item.name) !== productId))
         }catch(err){
@@ -65,7 +65,7 @@ const Cart = () => {
             )
         )
         try{
-            await axios.patch(`http://localhost:3000/cart/${productId}`, { quantity: safeQuantity })
+            await axios.patch(`https://e-commerce-backend-h8xm.onrender.com/cart/${productId}`, { quantity: safeQuantity })
         }catch(err){
             console.error('Quantity update failed', err)
         }
